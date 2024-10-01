@@ -60,8 +60,7 @@ const moduleExports = {
   },
   images: {
     domains: [
-      "pdwvetqkhfagwmkvduod.supabase.co",
-      "eainhsncogzypzcrwpsp.supabase.co",
+      "vitmxqikuypbbaufqssy.supabase.co",
       "t3.gstatic.com",
       "cdn.sanity.io",
     ],
@@ -90,7 +89,7 @@ module.exports = withSentryConfig(
     // Suppresses source map uploading logs during build
     silent: true,
 
-    org: "techulus-llc",
+    org: "wellahealth-technologies",
     project: "changes-page",
   },
   {

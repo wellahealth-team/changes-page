@@ -87,7 +87,8 @@ async function handler(
             page_url: getPageUrl(page, settings),
             page_title: page.title,
             page_logo:
-              settings.page_logo ?? "https://changes.page/images/logo.png",
+              settings.page_logo ??
+              `${process.env.NEXT_PUBLIC_SITE_URL}/images/logo.png`,
             // subscription
             confirm_link: `${pageUrl}/notifications/confirm-email-subscription?email=${encodeURIComponent(
               result.email

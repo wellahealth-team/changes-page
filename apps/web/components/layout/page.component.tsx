@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import React, { Fragment, useEffect } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import { useUserData } from "../../utils/useUser";
-import BillingBanner from "../billing/billing-banner";
 
 export default function Page({
   title,
@@ -208,8 +207,6 @@ export default function Page({
       </header>
 
       <main className="bg-gray-100 dark:bg-gray-900">
-        {user && <BillingBanner />}
-
         <div
           className={classNames(
             "mx-auto py-6",

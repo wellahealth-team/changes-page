@@ -5,11 +5,11 @@ const ContentSecurityPolicy = `
   style-src 'self' data: 'unsafe-inline';
   img-src 'self' * data:;
   font-src 'self';
-  connect-src 'self' wss: *.supabase.co *.changes.page *.intercom.io *.sentry.io vercel.live;
+  connect-src 'self' wss: *.supabase.co *.${process.env.NEXT_PUBLIC_DEFAULT_DOMAIN} *.intercom.io *.sentry.io vercel.live;
   report-to default
 `;
 
-const cspReportUri = "https://hey.changes.page/api/debug/csp-report";
+const cspReportUri = `https://${process.env.NEXT_PUBLIC_SITE_URL}/api/debug/csp-report`;
 
 const securityHeaders = [
   { key: "Referrer-Policy", value: "origin-when-cross-origin" },

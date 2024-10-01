@@ -75,7 +75,7 @@ export default function Hero({ stars = null }: { stars?: string | null }) {
 
             <div className="mt-24 sm:mt-32 lg:mt-16">
               <a
-                href="https://hey.changes.page"
+                href={process.env.NEXT_PUBLIC_SITE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex space-x-6"

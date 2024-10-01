@@ -14,7 +14,7 @@ export const sendPostNotification = inngestClient.createFunction(
 
     const result = await postmarkClient.sendEmailWithTemplate({
       MessageStream: "broadcast",
-      From: "notification@changes.page",
+      From: `notification@${process.env.NEXT_PUBLIC_DEFAULT_DOMAIN}`,
       To: email,
       ReplyTo: replyTo,
       TemplateAlias: "post-notification",

@@ -71,12 +71,6 @@ export default function NotificationsSettings({
       try {
         setLoading(true);
 
-        if (values.email_notifications) {
-          await httpPut({
-            url: "/api/billing/enable-email-notifications",
-          });
-        }
-
         await updatePageSettings(values);
         setLoading(false);
       } catch (err) {

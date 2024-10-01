@@ -2,13 +2,12 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { BadgeCheckIcon } from "@heroicons/react/solid";
 import classNames from "classnames";
-import { NextSeo } from "next-seo";
 import Head from "next/head";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useMemo } from "react";
-import { DEFAULT_TITLE, SUBTITLE, TAGLINE } from "../../data/marketing.data";
+import { DEFAULT_TITLE } from "../../data/marketing.data";
 import { ROUTES } from "../../data/routes.data";
 import logoImage from "../../public/images/logo.png";
 import userImage from "../../public/images/user.png";
@@ -18,34 +17,24 @@ import { MenuItem } from "../core/menu.component";
 import { createToastWrapper } from "../core/toast.component";
 
 export default function HeaderComponent() {
-  const { loading, user, billingDetails, signOut } = useUserData();
+  const { loading, user, signOut } = useUserData();
   const router = useRouter();
   const prefersColorScheme = usePrefersColorScheme();
 
   const navigation = useMemo(() => {
     if (user) {
-      if (billingDetails?.has_active_subscription) {
-        return [
-          { name: "Pages", href: ROUTES.PAGES },
-          { name: "Billing", href: ROUTES.BILLING },
-          { name: "Support", href: ROUTES.SUPPORT, external: true },
-        ];
-      } else {
-        return [
-          { name: "Pages", href: ROUTES.PAGES },
-          { name: "Pricing", href: ROUTES.PRICING },
-          { name: "Support", href: ROUTES.SUPPORT, external: true },
-        ];
-      }
+      return [
+        { name: "Pages", href: ROUTES.PAGES },
+        { name: "Support", href: ROUTES.SUPPORT, external: true },
+      ];
     }
 
     return [
-      { name: "Pricing", href: ROUTES.PRICING },
       { name: "Zapier Integration", href: ROUTES.ZAPIER },
       { name: "Knowledge base", href: ROUTES.DOCS, external: true },
       { name: "Support", href: ROUTES.SUPPORT, external: true },
     ];
-  }, [user, billingDetails]);
+  }, [user]);
 
   return (
     <>
@@ -55,33 +44,6 @@ export default function HeaderComponent() {
         <title>{DEFAULT_TITLE}</title>
         <link rel="shortcut icon" href={logoImage.src} />
       </Head>
-
-      <NextSeo
-        title={DEFAULT_TITLE}
-        description={SUBTITLE}
-        openGraph={{
-          title: DEFAULT_TITLE,
-          description: SUBTITLE,
-          type: "website",
-          images: [
-            {
-              url: `https://changes.page/api/blog/og?tag=${encodeURIComponent(
-                "changes.page"
-              )}&title=${TAGLINE}&content=${SUBTITLE}&logo=https://changes.page/images/logo.png`,
-              width: 1200,
-              height: 630,
-              alt: SUBTITLE,
-              type: "image/png",
-            },
-          ],
-          siteName: "changes.page",
-        }}
-        twitter={{
-          handle: "@arjunz",
-          site: "@techulus",
-          cardType: "summary_large_image",
-        }}
-      />
 
       <Disclosure as="nav" className="bg-gray-900">
         {({ open }) => (
@@ -201,9 +163,7 @@ export default function HeaderComponent() {
                                       <p className="font-semibold">
                                         {user?.user_metadata?.full_name}
 
-                                        {billingDetails?.has_active_subscription && (
-                                          <BadgeCheckIcon className="inline ml-1 -mt-1 w-5 h-5 text-indigo-500 dark:text-indigo-400" />
-                                        )}
+                                        <BadgeCheckIcon className="inline ml-1 -mt-1 w-5 h-5 text-indigo-500 dark:text-indigo-400" />
                                       </p>
                                     )}
                                     <p className="mt-1 truncate">
@@ -214,14 +174,6 @@ export default function HeaderComponent() {
                               )}
 
                               <MenuItem label="Pages" route={ROUTES.PAGES} />
-
-                              {(!!billingDetails?.subscription && (
-                                <MenuItem
-                                  label="Billing"
-                                  route={ROUTES.BILLING}
-                                />
-                              )) ||
-                                false}
 
                               <MenuItem
                                 label="Sign out"

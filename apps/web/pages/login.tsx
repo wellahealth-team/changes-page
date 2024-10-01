@@ -1,11 +1,9 @@
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import { NextSeo } from "next-seo";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { DEFAULT_TITLE, SUBTITLE, TAGLINE } from "../data/marketing.data";
 import { ROUTES } from "../data/routes.data";
 import logoImage from "../public/images/logo.png";
 import { getAppBaseURL } from "../utils/helpers";
@@ -27,33 +25,6 @@ export default function Login() {
       <Head>
         <link rel="shortcut icon" href={logoImage.src} />
       </Head>
-
-      <NextSeo
-        title={DEFAULT_TITLE}
-        description={SUBTITLE}
-        openGraph={{
-          title: DEFAULT_TITLE,
-          description: SUBTITLE,
-          type: "website",
-          images: [
-            {
-              url: `https://changes.page/api/blog/og?tag=${encodeURIComponent(
-                "changes.page"
-              )}&title=${TAGLINE}`,
-              width: 1200,
-              height: 630,
-              alt: SUBTITLE,
-              type: "image/png",
-            },
-          ],
-          siteName: "changes.page",
-        }}
-        twitter={{
-          handle: "@arjunz",
-          site: "@techulus",
-          cardType: "summary_large_image",
-        }}
-      />
 
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-800 py-12 px-4 sm:px-6 lg:px-8 overflow-y-auto">
         <div className="max-w-md w-full space-y-4">

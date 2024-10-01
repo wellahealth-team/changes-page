@@ -22,31 +22,6 @@ export default function MarketingHeaderComponent({ title, description }) {
         <link rel="shortcut icon" href={logoImage.src} />
       </Head>
 
-      <NextSeo
-        title={`${title} | ${MARKETING_TITLE}`}
-        description={description}
-        openGraph={{
-          title: `${title} | ${MARKETING_TITLE}`,
-          description,
-          type: "website",
-          images: [
-            {
-              url: `https://changes.page/api/blog/og?title=${title}&content=${description}`,
-              width: 1200,
-              height: 630,
-              alt: description,
-              type: "image/png",
-            },
-          ],
-          siteName: "changes.page",
-        }}
-        twitter={{
-          handle: "@arjunz",
-          site: "@techulus",
-          cardType: "summary_large_image",
-        }}
-      />
-
       <Disclosure as="nav" className="bg-gray-800">
         {({ open }) => (
           <>

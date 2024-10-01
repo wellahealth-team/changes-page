@@ -18,7 +18,6 @@ const BLACKLIST = [
   "cname",
   "domain",
   "domains",
-  "billing",
   "api",
   "dashboard",
   "settings",

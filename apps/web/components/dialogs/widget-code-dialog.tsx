@@ -8,7 +8,7 @@ export default function WidgetCodeDialog({ urlSlug, open, setOpen }) {
 
   const widgetCode = useMemo(
     () => `<!-- Script for loading widget JS -->
-<script async src="https://${urlSlug}.changes.page/v1/widget.js"></script>
+<script async src="https://${urlSlug}.${process.env.NEXT_PUBLIC_DEFAULT_DOMAIN}/v1/widget.js"></script>
 
 <script>
   // Open the widget using JS

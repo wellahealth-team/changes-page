@@ -134,7 +134,7 @@ export default function PageFormComponent({
               )}
 
               <span className="inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 dark:border-gray-700 bg-gray-50 text-gray-500 dark:text-gray-400 sm:text-sm dark:bg-gray-800">
-                .changes.page
+                .{process.env.NEXT_PUBLIC_DEFAULT_DOMAIN}
               </span>
             </div>
           </div>

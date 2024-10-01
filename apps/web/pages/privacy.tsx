@@ -9,10 +9,10 @@ export default function Privacy() {
 
       <Page title="Privacy Policy" legalPage>
         <p className="mt-3">
-          At changes.page, accessible from https://changes.page/, one of our
-          main priorities is the privacy of our visitors. This Privacy Policy
-          document contains types of information that is collected and recorded
-          by changes.page and how we use it.
+          At changes.page, accessible from {process.env.NEXT_PUBLIC_SITE_URL},
+          one of our main priorities is the privacy of our visitors. This
+          Privacy Policy document contains types of information that is
+          collected and recorded by changes.page and how we use it.
         </p>
 
         <p className="mt-3">

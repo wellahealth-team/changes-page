@@ -19,7 +19,7 @@ export function getPageUrl(
     return `https://${settings.custom_domain}`;
   }
 
-  return `https://${page.url_slug}.changes.page`;
+  return `https://${page.url_slug}.${process.env.NEXT_PUBLIC_DEFAULT_DOMAIN}`;
 }
 
 export function getPostUrl(

@@ -3,11 +3,7 @@ import { IPage } from "@changes-page/supabase/types/page";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { apiRateLimiter } from "../../../utils/rate-limit";
 import { getSupabaseServerClient } from "../../../utils/supabase/supabase-admin";
-import {
-  createPage,
-  getUserById,
-  updateSubscriptionUsage,
-} from "../../../utils/useDatabase";
+import { createPage, getUserById } from "../../../utils/useDatabase";
 
 const createNewPage = async (
   req: NextApiRequest,
@@ -37,8 +33,6 @@ const createNewPage = async (
         description,
         type,
       });
-
-      await updateSubscriptionUsage(user.id, `${data.id}-add`);
 
       return res.status(201).json(data);
     } catch (err) {

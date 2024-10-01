@@ -8,7 +8,6 @@ import { revalidatePage } from "../../../utils/revalidate";
 import {
   createOrRetrievePageSettings,
   getPageById,
-  reportEmailUsage,
 } from "../../../utils/useDatabase";
 
 const databaseWebhook = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -81,8 +80,6 @@ const databaseWebhook = async (req: NextApiRequest, res: NextApiResponse) => {
             .catch((e) =>
               console.log("sendPostEmailToSubscribers failed:", page, record, e)
             );
-
-          await reportEmailUsage(user_id, page_id, id);
         }
 
         // Mark post as notified if email notifications are disabled and post is published

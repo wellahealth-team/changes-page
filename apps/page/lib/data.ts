@@ -18,7 +18,6 @@ export const BLACKLISTED_SLUGS = [
   "cname",
   "domain",
   "domains",
-  "billing",
   "api",
   "dashboard",
   "settings",

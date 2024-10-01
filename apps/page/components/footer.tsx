@@ -170,11 +170,11 @@ export default function Footer({ settings }: { settings: IPageSettings }) {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://changes.page"
+            href={process.env.NEXT_PUBLIC_SITE_URL}
             title="changes.page"
           >
             <button className="text-xs font-medium text-gray-600 dark:text-gray-300 inline-flex">
-              ⚡ Powered by changes.page
+              ⚡ Powered by {process.env.NEXT_PUBLIC_DEFAULT_NAME}
             </button>
           </a>
         </p>

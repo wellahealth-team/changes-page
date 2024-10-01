@@ -10,7 +10,8 @@ export default function Terms() {
       <Page title="Terms and Conditions" legalPage>
         <p className="mt-3">
           These terms and conditions outline the rules and regulations for the
-          use of changes.page&apos;s Website, located at https://changes.page/.
+          use of changes.page&apos;s Website, located at{" "}
+          {process.env.NEXT_PUBLIC_SITE_URL}..
         </p>
 
         <p className="mt-3">

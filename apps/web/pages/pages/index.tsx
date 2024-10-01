@@ -12,9 +12,7 @@ import AuthLayout from "../../components/layout/auth-layout.component";
 import Page from "../../components/layout/page.component";
 import Changelog from "../../components/marketing/changelog";
 import { ROUTES } from "../../data/routes.data";
-import { getAppBaseURL } from "../../utils/helpers";
 import { getSupabaseServerClient } from "../../utils/supabase/supabase-admin";
-import { useUserData } from "../../utils/useUser";
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const { supabase } = await getSupabaseServerClient(ctx);
@@ -36,7 +34,6 @@ export default function Pages({
   pages,
   error,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const { billingDetails } = useUserData();
   const router = useRouter();
   useHotkeys("n", () => router.push(ROUTES.NEW_PAGE), [router]);
 
@@ -58,27 +55,19 @@ export default function Pages({
             }
             route={ROUTES.NEW_PAGE}
             keyboardShortcut={"n"}
-            upgradeRequired={!billingDetails?.has_active_subscription}
+            upgradeRequired={false}
           />
         }
       >
-        {billingDetails?.has_active_subscription ? <Changelog /> : null}
+        <Changelog />
 
         <div className="overflow-hidden sm:rounded-md">
           {!pages.length && (
             <EntityEmptyState
               title=" No pages yet!"
               message="Get started by creating your first page."
-              buttonLink={
-                billingDetails?.has_active_subscription
-                  ? `/pages/new`
-                  : `/api/billing/redirect-to-checkout?return_url=${getAppBaseURL()}/pages`
-              }
-              buttonLabel={
-                billingDetails?.has_active_subscription
-                  ? "Create New Page"
-                  : "Start Free Trial"
-              }
+              buttonLink={`/pages/new`}
+              buttonLabel={"Create New Page"}
               footer={
                 <div className="mt-4 text-sm">
                   <a

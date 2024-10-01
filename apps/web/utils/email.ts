@@ -91,7 +91,8 @@ export const sendPostEmailToSubscribers = async (
             page_url: getPageUrl(page, settings),
             page_title: page.title,
             page_logo:
-              settings.page_logo ?? "https://changes.page/images/logo.png",
+              settings.page_logo ??
+              `${process.env.NEXT_PUBLIC_SITE_URL}/images/logo.png`,
             // post
             post_title: post.title,
             post_content: convertMarkdownToHtml(post.content),
@@ -107,7 +108,7 @@ export const sendPostEmailToSubscribers = async (
           },
           replyTo: !!settings?.email_reply_to
             ? settings.email_reply_to
-            : "support@changes.page",
+            : `support@${process.env.NEXT_PUBLIC_DEFAULT_DOMAIN}`,
         },
         user: {
           id: page.user_id,

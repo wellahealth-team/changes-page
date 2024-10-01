@@ -2,10 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { v4 } from "uuid";
 import { IPage } from "@changes-page/supabase/types/page";
 import { revalidatePage } from "../../../utils/revalidate";
-import {
-  createOrRetrievePageSettings,
-  updateSubscriptionUsage,
-} from "../../../utils/useDatabase";
+import { createOrRetrievePageSettings } from "../../../utils/useDatabase";
 
 const databaseWebhook = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
@@ -22,9 +19,6 @@ const databaseWebhook = async (req: NextApiRequest, res: NextApiResponse) => {
       const { id, user_id } = page;
 
       console.log("Trigger databaseWebhook [Pages]: Record:", type, id);
-
-      // report usage
-      await updateSubscriptionUsage(user_id, `${type}-${id}-${v4()}`);
 
       // Revalidate
       await revalidatePage(page.url_slug);

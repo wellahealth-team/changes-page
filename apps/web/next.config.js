@@ -5,12 +5,12 @@ const ContentSecurityPolicy = `
   style-src 'self' data: 'unsafe-inline' maxcdn.bootstrapcdn.com cdn.jsdelivr.net;
   img-src 'self' * data: blob:;
   font-src 'self' data: maxcdn.bootstrapcdn.com cdn.jsdelivr.net;
-  connect-src 'self' wss: *.supabase.co *.changes.page manageprompt.com;
+  connect-src 'self' wss: *.supabase.co *.${process.env.NEXT_PUBLIC_DEFAULT_DOMAIN} manageprompt.com;
   worker-src 'self' blob:;
   report-to default
 `;
 
-const cspReportUri = "https://changes.page/api/debug/csp-report";
+const cspReportUri = `${process.env.NEXT_PUBLIC_SITE_URL}/api/debug/csp-report`;
 
 const securityHeaders = [
   { key: "Referrer-Policy", value: "origin-when-cross-origin" },

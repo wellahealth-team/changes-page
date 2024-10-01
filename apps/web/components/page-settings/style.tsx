@@ -378,7 +378,7 @@ export default function StyleSettings({
               {page && (
                 <div className="px-4 py-3 bg-gray-50 dark:bg-black text-right sm:px-6">
                   <a
-                    href={`https://${page?.url_slug}.changes.page`}
+                    href={`https://${page?.url_slug}.${process.env.NEXT_PUBLIC_DEFAULT_DOMAIN}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

@@ -4,21 +4,7 @@
 
   <p align="center">
     An open-source solution revolutionizing changelog management.
-    <br />
-    <a href="https://changes.page"><strong>Learn more »</strong></a>
-    <br />
-    <br />
-    <a href="https://changes.page">Website</a>
-    ·
-    <a href="https://github.com/techulus/changes-page/issues">Issues</a>
-    ·
-    <a href="https://techulus.atlassian.net/servicedesk/customer/portal/1">Support</a>
-  </p>
 </p>
-
-## Contact us 💌
-
-If you want to learn more about this project or have any questions, send us an email at [hello@changes.page](mailto:hello@changes.page)
 
 ## Built with 🛠️
 
@@ -31,10 +17,18 @@ If you want to learn more about this project or have any questions, send us an e
 
 ## Getting Started 🚀
 
+### Differences between this and main repo
+
+The main repo contains all that you need to run the changelog system and hence requires additional setup.
+
+This fork has been modified to remove the Billing Components. A seperate branch `develop-original` is used to keep track of changes from the main repo
+
+To contribute to this fork, use the `develop` branch
+
 ### Requirements
 
-- [Node.js](https://nodejs.org/en/) >= 18.0.0
-- [pnpm](https://pnpm.io/) >= 8.6.2
+- [Node.js](https://nodejs.org/en/) >= 20.17.0
+- [pnpm](https://pnpm.io/) >= 9.11.0
 
 ### Setup
 
@@ -55,6 +49,13 @@ If you want to learn more about this project or have any questions, send us an e
    From `apps/web` and `apps/page`, you will find .env.example. Create your own copy.
 
 4. Setup your Supabase instance and add the credentials to your .env files
+
+   - Create an account here: https://supabase.com/
+   - After creating an account, go to Settings and copy the API details to your `.env`
+   - Connect to your Supabase database using the guide here: https://supabase.com/docs/guides/database/connecting-to-postgres
+   - Run all migrations in the folder `packages/utils/migrations`. Make sure to run the migrations in order.
+   - The migrations should be run in the `public` schema of the postgres database
+   - In supabase, create a new user in the Authentication section. The new user created will be used to sign up when you run the web
 
 5. Run the build command
 

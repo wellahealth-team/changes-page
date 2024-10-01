@@ -46,7 +46,7 @@ export default async function handler(req: NextRequest) {
             width: "100%",
             opacity: 0.75,
           }}
-          src={`https://changes.page/images/backgrounds/${randomNumber}.svg`}
+          src={`${process.env.NEXT_PUBLIC_SITE_URL}/images/backgrounds/${randomNumber}.svg`}
           alt="bg"
         />
 

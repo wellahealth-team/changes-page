@@ -9,7 +9,7 @@ export function getPageUrl(page, settings) {
     return `https://${settings.custom_domain}`;
   }
 
-  return `https://${page.url_slug}.changes.page`;
+  return `https://${page.url_slug}.${process.env.NEXT_PUBLIC_DEFAULT_DOMAIN}`;
 }
 
 export function getPostUrl(pageUrl: string, post: IPost) {
@@ -30,7 +30,7 @@ export default function usePageUrl(
       return `https://${settings.custom_domain}`;
     }
 
-    return `https://${page.url_slug}.changes.page`;
+    return `https://${page.url_slug}.${process.env.NEXT_PUBLIC_DEFAULT_DOMAIN}`;
   }, [page, settings]);
 
   const postUrl = useCallback(

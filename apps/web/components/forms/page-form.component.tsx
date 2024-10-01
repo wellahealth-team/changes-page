@@ -70,7 +70,7 @@ export default function PageFormComponent({
         formik.setFieldValue(key, page[key]);
       }
     }
-  }, [page]);
+  }, [page, formik]);
 
   if (loading) {
     return <SpinnerWithSpacing />;

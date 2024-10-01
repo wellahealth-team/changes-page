@@ -36,7 +36,6 @@ export const BLACKLISTED_SLUGS = [
   "open",
   "manage",
   "affiliate",
-  "blog",
   "store",
   "shop",
   "download",

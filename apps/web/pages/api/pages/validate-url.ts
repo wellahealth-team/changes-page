@@ -36,7 +36,6 @@ const BLACKLIST = [
   "open",
   "manage",
   "affiliate",
-  "blog",
   "store",
   "shop",
   "download",

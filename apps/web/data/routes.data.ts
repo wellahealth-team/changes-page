@@ -14,7 +14,6 @@ export const ROUTES = {
   NEW_PAGE: "/pages/new",
 
   // legal
-  BLOG: "/blog",
   PRIVACY: "/privacy",
   SUPPORT: "/",
   TERMS: "/terms",

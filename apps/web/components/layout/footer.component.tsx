@@ -24,7 +24,6 @@ const navigation = {
       name: "ChangeCraftAI",
       href: ROUTES.GEN_AI,
     },
-    { name: "Blog", href: ROUTES.BLOG },
   ],
   legal: [
     { name: "Privacy", href: ROUTES.PRIVACY },

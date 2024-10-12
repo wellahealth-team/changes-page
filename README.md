@@ -71,3 +71,5 @@ To contribute to this fork, use the `develop` branch
 
 7. Open [http://localhost:3000](http://localhost:3000) with your browser to see
    the result.
+
+https://docs.netlify.com/frameworks/next-js/overview/
